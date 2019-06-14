@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+<nav th:include="footer :: commonHead"/>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <nav th:include="header :: header"></nav>
+	<section id="form"><!--form-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">
+					<div class="login-form"><!--login form-->
+						<h2>Đăng nhập tài khoản của bạn</h2>
+						<form th:action="@{/login}" method = "post">
+							<input type="text" placeholder="Tên đăng nhập" name = "username" id="emaildk"/>
+							<input type="password" placeholder="Mật khẩu" name = "password" id="pass"/>
+							<input type = "hidden" value="login" name = "command">
+							<button type="submit" class="btn btn-default">Đăng nhập</button>
+						</form>
+					</div><!--/login form-->
+				</div>
+				<div class="col-sm-1">
+					<h2 class="or">Hoặc</h2>
+				</div>
+				<div class="col-sm-4">
+					<div class="signup-form"><!--sign up form-->
+						<h2>Đăng ký người dùng mới</h2>
+						<form th:action="@{/register}"  method= "post">
+							<!--<input type="text" placeholder="Tên tài khoản"/>-->
+							<input type="text" placeholder="Tên đăng nhập" name="name" id="name" />
+							<input type="password" placeholder="Mật khẩu" name = "password" id="pass"/>
+							<input type="text" placeholder="Địa chỉ nhà" name = "address" id="address"/>
+							<span></span>
+							<input type="hidden" value ="insert" name = "command">
+							<button type="submit" class="btn btn-default">Đăng ký</button>							
+						</form>
+					</div><!--/sign up form-->
+				</div>
+				<div class="col-sm-3">
+					<br>
+					<br>
+					<br>
+					<br>
+					<span id="user-result"></span>
+				</div>
+			</div>
+		</div>
+	</section><!--/form-->
+<nav th:include="footer :: footer"></nav>
+</body>
+</html>

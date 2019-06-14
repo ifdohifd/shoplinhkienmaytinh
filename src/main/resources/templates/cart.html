@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Cart</title>
+<nav th:include="footer :: commonHead"/>
+</head>
+<body>
+<nav th:include="header :: header"></nav>
+<div class="ui container">
+    <h2 th:if="${cart.empty}" >Giỏ hàng của bạn trống</h2>
+    <div th:unless="${cart.empty}">
+        <table class="ui celled table">
+            <thead>
+            <tr>
+                <th>Tên</th>
+                <th>Số lượng</th>
+                <th>Giá</th>
+            </tr>
+            </thead>
+            <tbody th:remove="all-but-first">
+
+            <tr th:each="item : ${cart} ">
+                <td th:text="${item.productName}"></td>
+                <td th:text="${item.quantity}"></td>
+                <td th:text="${{item.price}}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="ui two column centered grid">
+            <div class="four column centered row">
+                <div class="column">
+                <br>
+                <br>
+                    <div class="ui horizontal statistic">
+                      <td>Tổng tiền:</td> <div class="value"><span th:text="${{cart.price}}"></span></div>
+                    </div>
+                </div>
+                <br>
+                <div class="column">
+                    <form sec:authorize="hasRole('ROLE_CUSTOMER')" class="ui form" method="post" th:action="@{/checkout}">
+                        <button type="submit" class="btn btn-fefault cart">Mua</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+</div>
+<nav th:include="footer :: footer"></nav>
+</body>
+</html>
